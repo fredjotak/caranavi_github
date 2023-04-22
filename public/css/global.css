@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+    padding: 5px;
+    width: calc(100vw - 10px);
+    height: calc(100wh -10px);
+    background-color: darkorange;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 40px;
+    color: darkmagenta;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#canvas {
+    width: 85vw;
+    height: 45vw;
+    border-radius: 5px;
+    border: 2px solid black;
+}
