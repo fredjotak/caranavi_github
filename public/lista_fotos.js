@@ -1,4 +1,4 @@
-[
+const recursos360 = [
 	{id:1, nombre:'SAM_100_6750_20221226_111117.jpg',thumb: '675020393.jpg'}, 
 	{id:2, nombre:'SAM_100_6752_20221226_112035.jpg',thumb: '675232216.jpg'}, 
 	{id:3, nombre:'SAM_100_6753_20221226_112100.jpg',thumb: '675318095.jpg'}, 

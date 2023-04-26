@@ -186,7 +186,7 @@ header button {
     display: none;
 }
 
-/* *********** CONTNENDOR TIPO ********** */
+/* *********** CONTNENEDOR TIPO ********** */
 .contenedor-tipo-archivo {
     position: sticky;
     max-width: 300px;
@@ -369,6 +369,10 @@ header button {
     height: 40px;
     fill: var(--color-blanco);
 }
+.modal-imagen-video-boton > svg:hover {
+    transform: scale(1.2, 1.2);
+    fill: var(--tema-1-ciruelo);
+}
 
 .modal-imagen-video-controles > .div-control-desplazamiento > .modal-imagen-video-boton {
     margin: 0 7.5px;
@@ -376,9 +380,12 @@ header button {
 
 .modal-imagen-video-controles > .div-control-desplazamiento > .modal-imagen-video-boton > svg {
     margin: 0 7.5px;
-    fill: rgba(255, 255, 255, .5)
+    fill: rgba(255, 255, 255, .5);
 }
 
 .modal-imagen-video-controles > .div-control-desplazamiento > .modal-imagen-video-boton > svg.activo {
     fill: var(--color-blanco);
+}
+.modal-imagen-video-controles > .div-control-desplazamiento > .modal-imagen-video-boton > svg.activo:hover {
+    fill: var(--tema-1-naranja);
 }
