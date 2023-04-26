@@ -86,8 +86,6 @@ window.addEventListener('load', function() {
     });
 
     function cambiarSiguienteAnterior(){
-        console.log('sadsadsa');
-        eliminarNodosHijos(contenedorImagenVideo);
         // Si es imagen asumiendo
         {
             // limpiar botones activos left right
@@ -110,22 +108,11 @@ window.addEventListener('load', function() {
             modalVideoImagen.querySelector(".modal-imagen-video-info").querySelector("h3").textContent = datoRecurso;
 
             // Crear imagen 
-            let contImg = document.createElement("img");
+            let contImg = contenedorImagenVideo.querySelector("img");
             contImg.src = datoRecurso;
-            contenedorImagenVideo.append(contImg);
-
         }
     }
 });
-
-
-function eliminarNodosHijos(nodoPadre){
-    if ( nodoPadre.hasChildNodes() ){
-        while ( nodoPadre.childNodes.length >= 1 ) {
-            nodoPadre.removeChild( nodoPadre.firstChild );
-        }
-    }
-}
 
 function crearMiniaturaFoto(inSrcThumb, inNombre, inFecha){
     let divContenedor = document.createElement('div');
