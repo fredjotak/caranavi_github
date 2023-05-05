@@ -1,6 +1,6 @@
-import  * as THREE from 'three';
-import {GUI} from 'three/addons/libs/lil-gui.module.min.js';
-import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
+import  * as THREE from 'https://unpkg.com/three@0.139.2/build/three.module.js';
+import {GUI} from 'https://unpkg.com/three@0.139.2/examples/jsm/libs/lil-gui.module.min.js';
+import {OrbitControls} from 'https://unpkg.com/three@0.139.2/examples/jsm/controls/OrbitControls.js';
 
 window.addEventListener('load', function() {
     
