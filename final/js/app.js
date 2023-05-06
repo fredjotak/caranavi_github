@@ -1,5 +1,4 @@
 import  * as THREE from 'three';
-import {GUI} from 'three/addons/libs/lil-gui.module.min.js';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 
 window.addEventListener('load', function() {
@@ -42,9 +41,6 @@ window.addEventListener('load', function() {
 
     let textureLoader, textureEquirec;
     let sphereMesh, sphereMaterial;
-
-    let estado = false;
-    let params, gui;
     // fin elementos three,js
 
     // ******** REPRODUCCIÓN AUTOMÁTICO DE VIDEOS CUANDO SE PASA EL CURSOR
@@ -99,7 +95,6 @@ window.addEventListener('load', function() {
         });
     }
     modalBotonCerrar.addEventListener('click', function(e){
-        gui.destroy();;
         modalVideoImagen.style.display = 'none';
         document.location = "#"+indice;
     });
@@ -199,33 +194,6 @@ window.addEventListener('load', function() {
         controls = new OrbitControls(camera, canvas);
         controls.autoRotateSpeed = 5.0;
         controls.autoRotate = true;
-    
-        /* const  */params = {
-            /* Left: function(){
-                eqIndex = ((eqIndex-1)>=0)? eqIndex-1: datos.length-1;
-                cambiarImagenGit();
-            },
-            Right: function(){
-                eqIndex = ((eqIndex+1)<datos.length)? eqIndex+1: 0;
-                cambiarImagenGit();
-            }, */
-            
-            Refraction: false
-        };
-    
-        /* const */ gui = new GUI();
-        /* gui.add(params, 'Left');
-        gui.add(params, 'Right'); */
-        gui.add(params, 'Refraction').onChange( function(value){
-            /* estado = value;
-            if(value){
-                textureEquirec.mapping = THREE.EquirectangularRefractionMapping;
-            } else {
-                textureEquirec.mapping = THREE.EquirectangularReflectionMapping;
-            }
-            sphereMaterial.needsUpdate = true; */
-        });
-        gui.open();
 
         document.addEventListener( 'wheel', onDocumentMouseWheel );
         window.addEventListener( 'resize', onWindowResize );
@@ -279,16 +247,6 @@ window.addEventListener('load', function() {
                 textureEquirec = textureLoader.load('data:image/'+extension+';'+data.encoding+','+data.content, ()=> {
                     scene.background = textureEquirec;
                     textureEquirec.mapping = THREE.EquirectangularReflectionMapping;
-                    /* sphereMaterial.envMap = textureEquirec;
-                    sphereMaterial.needsUpdate = true; */
-            
-                    // Esfera
-                    /* if(estado){
-                        textureEquirec.mapping = THREE.EquirectangularRefractionMapping;
-                    } else {
-                        textureEquirec.mapping = THREE.EquirectangularReflectionMapping;
-                    }
-                    sphereMaterial.needsUpdate = true; */
                 }); 
                 //$('#mi-imagen').attr('src','data:image/'+extension+';'+data.encoding+','+data.content);
             },
