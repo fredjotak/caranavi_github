@@ -65,8 +65,6 @@ window.addEventListener('load', function() {
         contenedorGaleria.appendChild(elem360);
     });
 
-
-
     // ************* click En una elemento de la galeria
     // contenedores
     let elementoGaleria = this.document.querySelectorAll('.contenido-elemento');
@@ -82,7 +80,8 @@ window.addEventListener('load', function() {
     //animate();
 
     for(let i=0; i<elementoGaleria.length; i++){
-        elementoGaleria[i].addEventListener('dblclick', function(e){
+        // dblclick
+        elementoGaleria[i].addEventListener('click', function(e){ 
             let dato = elementoGaleria[i];
             indice = parseInt(dato.querySelector('img').dataset.id);
             elementoGaleria[i].classList.add('animar');
@@ -123,7 +122,7 @@ window.addEventListener('load', function() {
                 const textureLoading  = new THREE.TextureLoader();
                 const textureEquirectmp = textureLoading.load(directorioMiniatura+recursos360[indice].thumb);
                 textureEquirectmp.mapping = THREE.EquirectangularReflectionMapping;
-
+        
                 sphereMaterial.envMap = textureEquirectmp;
                 sphereMaterial.needsUpdate = true;
                 scene.add(sphereMesh);
@@ -137,16 +136,8 @@ window.addEventListener('load', function() {
                     modalBotonAnterior.querySelector('svg').classList.add('activo');
                 }
             }
-
-            // foto
-            let datoRecurso = directorioMiniatura+recursos360[indice].thumb;
-            //modalVideoImagen.style.display = 'block';
             
             modalVideoImagen.querySelector(".modal-imagen-video-info").querySelector("h3").textContent = recursos360[indice].nombre;
-
-            // Reemplazar imagen 
-            /* let contImg = contenedorImagenVideo.querySelector("img");
-            contImg.src = datoRecurso; */
             cambiarImagenGit();
         }
     }
@@ -179,7 +170,7 @@ window.addEventListener('load', function() {
     
         // esfera crear temporal
         {
-            const geometry = new THREE.IcosahedronGeometry(400, 15);
+            const geometry = new THREE.IcosahedronGeometry(300, 15);
             sphereMaterial = new THREE.MeshBasicMaterial({envMap: textureEquirec});
             sphereMesh = new THREE.Mesh(geometry, sphereMaterial);
             sphereMaterial.envMap = textureEquirec;
@@ -214,12 +205,13 @@ window.addEventListener('load', function() {
     } */
     
     function render(){
-        controls.update(); // actualiza la rotacion de Controls
+        controls.update();  /* actualiza la rotacion de Controls */
         renderer.render(scene, camera);
     }
     function onDocumentMouseWheel( event ) {
-        const fov = camera.fov + event.deltaY * /* 0.05 */0.05;
-        camera.fov = THREE.MathUtils.clamp( fov,/* 10 */5, /* 75 */75);
+        const fov = camera.fov + event.deltaY * /* 0.05 */0.03;
+        camera.fov = THREE.MathUtils.clamp( fov,/* 10 */25, /* 75 */75);
+        //console.log(geometry);
         camera.updateProjectionMatrix();
     }
     function onWindowResize() {
